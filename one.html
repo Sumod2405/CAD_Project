@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landmark & Construction — CAD Services</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    :root{
+      --brand:#6a3f1f;
+      --brand-2:#d6b89b;
+      --muted:#6c757d;
+      --bg-dark:#0f1720;
+      --radius:14px;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body {
+      scroll-behavior: smooth;
+      padding-top: 72px;
+      background: 
+        linear-gradient(180deg, rgba(10,11,13,0.7), rgba(10,11,13,0.4)),
+        url('img/0.jpg') center center/cover no-repeat fixed;
+      color: #222;
+    }
+    .brand-mark{
+      width:44px; height:44px;
+      border-radius:8px;
+      background: linear-gradient(135deg, var(--brand), #4a2b16);
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-weight:700;
+      font-size:18px;
+    }
+    header.hero-section {
+      background: none !important; /* Remove background from header */
+      min-height: 95vh;
+      display: flex;
+      align-items: center;
+      color: white;
+      position: relative;
+    }
+    .hero-section h1, .hero-section p{
+      text-shadow: 0 6px 18px rgba(10,10,10,0.5);
+    }
+    .service-card{
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .service-card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 48px rgba(16,24,40,0.12);
+    }
+    .service-card .icon{ color: var(--brand); }
+    .team-card .card-img-top{ object-fit: cover; }
+    footer small { opacity: 0.85; }
+    @media (max-width: 767px){
+      .hero-section{ min-height: 70vh; padding:3rem 0; } /* Increased from 60vh to 70vh */
+    }
+    section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    nav#mainNav.navbar {
+      background: transparent !important; /* Fully transparent navbar */
+      box-shadow: none;
+      transition: background 0.3s;
+    }
+    nav#mainNav .navbar-nav .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      letter-spacing: 0.5px;
+    }
+    nav#mainNav .navbar-nav .nav-link.active,
+    nav#mainNav .navbar-nav .nav-link:focus,
+    nav#mainNav .navbar-nav .nav-link:hover {
+      color: #fff !important;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Section backgrounds for clarity and style */
+    section#about {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(2px);
+    }
+
+    section#about .card {
+      background: rgba(255,255,255,0.92);
+      border: none;
+    }
+
+    section#expertise {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(2px);
+    }
+
+    section#expertise .card {
+      background: rgba(255,255,255,0.92);
+      border: none;
+    }
+
+    section#contact {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(2px);
+    }
+
+    section#contact .card {
+      background: rgba(255,255,255,0.92);
+      border: none;
+    }
+
+    /* Footer transparent/merge effect */
+    footer.bg-dark {
+      background: rgba(20,20,20,0.45) !important;
+      color: #fff;
+      backdrop-filter: blur(2px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Optional: Make TEAM section stand out a bit */
+    section#team {
+      background: rgba(245,245,245,0.93);
+      backdrop-filter: blur(1px);
+    }
+
+    .object-fit-contain {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+    }
+
+    /* Add or update at the end of your <style> block */
+    #galleryCarousel .carousel-inner {
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+#galleryCarousel .carousel-item img {
+  transition: transform 1.2s cubic-bezier(.4,2,.6,1), box-shadow .3s;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  background: #fff;
+}
+#galleryCarousel .carousel-item.active img {
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+#galleryCarousel .carousel-control-prev-icon,
+#galleryCarousel .carousel-control-next-icon {
+  background-size: 2.5rem 2.5rem;
+}
+#galleryCarousel .carousel-indicators [data-bs-target] {
+  background-color: #6a3f1f;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+#galleryCarousel .carousel-indicators .active {
+  opacity: 1;
+  background-color: #d6b89b;
+}
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#home">
+        <div class="brand-mark me-2">L</div>
+        <div>
+          <div class="fw-bold">Landmark</div>
+          <small class="fw-bold">& Construction</small>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navMenu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#expertise">Expertise</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero-section d-flex align-items-center text-white">
+    <div class="container text-center">
+      <h1 class="display-5 fw-bold">Precision CAD & Drafting Solutions</h1>
+      <p class="lead mb-4">Delivering top-tier engineering, surveying and civil drafting services — accurate, timely and cost-effective.</p>
+      <a href="#services" class="btn btn-primary btn-lg me-2">Our Services</a>
+      <a href="#contact" class="btn btn-outline-light btn-lg">Get in Touch</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2>About Landmark</h2>
+          <p>Landmark excels in providing top-tier engineering and survey drafting solutions, meticulously tailored to meet the unique demands of each project. We combine extensive expertise with a flexible approach to deliver precise, innovative results that are efficient and cost-effective.</p>
+          <p>Since inception, we have transformed complex CAD challenges into tangible business outcomes using state-of-the-art technology and a dedicated team of professionals.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Vision</h5>
+              <p class="card-text">To be a global partner in the AEC software industry — shaping the future, sharing knowledge and setting benchmarks for innovative CAD services.</p>
+              <h5 class="card-title mt-4 mb-3">Mission</h5>
+              <p class="card-text">Provide professional CAD and drafting solutions to AEC and software companies, emphasizing quality, professionalism and continuous learning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h3>Services</h3>
+        <p class="text-muted">Comprehensive CAD solutions tailored to engineering and surveying needs</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="icon mb-3"><i class="fa-solid fa-drafting-compass fa-2x"></i></div>
+            <h5>Drafting — Civil Engineering</h5>
+            <p>Detailed drafting for roads, bridges, utilities and infrastructure using industry best practices and precision checks.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="icon mb-3"><i class="fa-solid fa-map-location-dot fa-2x"></i></div>
+            <h5>Survey Mapping & Land Surveying</h5>
+            <p>Swift and accurate land surveying and mapping services, compliant with global standards and tailored for field-to-office workflows.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="icon mb-3"><i class="fa-solid fa-chart-line fa-2x"></i></div>
+            <h5>Digital Marketing for AEC Firms</h5>
+            <p>Branding & marketing strategies to increase visibility and reputation for engineering and construction businesses.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="icon mb-3"><i class="fa-solid fa-clock fa-2x"></i></div>
+            <h5>Quick Response & 24/7 Support</h5>
+            <p>Support across time zones to ensure project continuity and timely responses for urgent deliverables.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="icon mb-3"><i class="fa-solid fa-users-gear fa-2x"></i></div>
+            <h5>Training & Continuous Learning</h5>
+            <p>Continuous skill upgradation for our CAD team so that deliverables stay current and efficient.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card p-4 h-100">
+            <div class="icon mb-3"><i class="fa-solid fa-handshake fa-2x"></i></div>
+            <h5>Flexible Engagement Models</h5>
+            <p>Outsourcing models to fit budgets and scale — from staff augmentation to project-based delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section id="expertise" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h3>Why Choose Us?</h3>
+          <ul class="list-unstyled mt-3">
+            <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>Domain expertise in Civil Engineering and Surveying</li>
+            <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>Experienced and continuously trained team</li>
+            <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>Global presence — USA, Asia, Australia</li>
+            <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i>Client-focused, flexible arrangements to reduce overheads</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="card shadow-sm p-4">
+            <h5 class="mb-3">Our Approach</h5>
+            <p>We combine technical competence, QA processes and collaboration to deliver CAD drawings that are practical and optimized for implementation.</p>
+            <p class="mb-0"><strong>Turnaround:</strong> Fast delivery with a focus on quality checks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM / FOUNDER -->
+  <section id="team" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h3>Leadership</h3>
+        <p class="text-muted">Meet the person behind Landmark</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="card team-card text-center shadow-sm">
+            <img src="img/1.jpg" alt="Er. Ruturaj Jadhav" class="card-img-top" width="418" height="430" style="object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title">Er. Ruturaj Jadhav</h5>
+              <p class="card-text small text-muted">CEO & Founder — Senior Engineer & Surveyor with years of practical experience.</p>
+              <p class="mb-0">Focused on delivering high-quality CAD services and driving the vision of Landmark.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION (no outer white box, moved above contact) -->
+  <section id="gallery" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="mb-2" style="color:#fff; font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,0.18);">Gallery</h2>
+        <p class="text-white fw-bold" style="font-size:1.15rem; text-shadow:0 2px 8px rgba(0,0,0,0.18);">A glimpse of our work and projects</p>
+      </div>
+      <div id="galleryCarousel" class="carousel slide carousel-fade shadow rounded overflow-hidden" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="ratio ratio-16x9 bg-white">
+              <img src="img/ii1.jpg" class="d-block w-100 rounded object-fit-contain" alt="Gallery image 0">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9 bg-white">
+              <img src="img/i1.jpg" class="d-block w-100 rounded object-fit-contain" alt="Gallery image 1">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9 bg-white">
+              <img src="img/i2.jpg" class="d-block w-100 rounded object-fit-contain" alt="Gallery image 2">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9 bg-white">
+              <img src="img/i3.jpg" class="d-block w-100 rounded object-fit-contain" alt="Gallery image 3">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9 bg-white">
+              <img src="img/i4.jpg" class="d-block w-100 rounded object-fit-contain" alt="Gallery image 4">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="ratio ratio-16x9 bg-white">
+              <img src="img/i5.jpg" class="d-block w-100 rounded object-fit-contain" alt="Gallery image 5">
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: drop-shadow(0 0 6px #222);"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true" style="filter: drop-shadow(0 0 6px #222);"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h3>Contact Us</h3>
+          <p class="text-muted">We're ready to discuss your CAD requirements.</p>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-primary"></i>landmarkdesigns202@gmail.com</li>
+            <li class="mb-2"><i class="fa-solid fa-phone me-2 text-primary"></i>8805205474 / 7058912791</li>
+            <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-primary"></i>Office No. 1, Rajarampuri 9 Lane, Kolhapur, Maharashtra, India</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Send a message</h5>
+              <form id="contactForm" onsubmit="return handleContact(event)">
+                <div class="mb-3"><label class="form-label">Name</label><input id="name" class="form-control" required /></div>
+                <div class="mb-3"><label class="form-label">Email</label><input id="email" type="email" class="form-control" required /></div>
+                <div class="mb-3"><label class="form-label">Message</label><textarea id="message" class="form-control" rows="4" required></textarea></div>
+                <div class="d-grid"><button class="btn btn-primary" type="submit">Send Message</button></div>
+                <p class="mt-3 small text-success d-none" id="contactSuccess">Thanks — your message was prepared locally (demo only).</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-md-flex justify-content-between align-items-center">
+      <div><strong>Landmark & Construction</strong><br><small>Office No.1, Rajarampuri 9 Lane, Kolhapur, Maharashtra, India</small></div>
+      <div class="mt-3 mt-md-0">
+        <a class="text-white me-3" href="mailto:landmarkdesigns202@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        <a class="text-white me-3" href="tel:+918805205474"><i class="fa-solid fa-phone"></i></a>
+        <small class="d-block mt-2">&copy; <span id="year"></span> Landmark — All rights reserved</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function handleContact(e){
+      e.preventDefault();
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim();
+      const message=document.getElementById('message').value.trim();
+      if(!name||!email||!message){alert('Please complete all fields.');return false;}
+      document.getElementById('contactSuccess').classList.remove('d-none');
+      setTimeout(()=>{
+        document.getElementById('contactForm').reset();
+        document.getElementById('contactSuccess').classList.add('d-none');
+        alert('Demo contact form only. Hook with backend to send messages.');
+      },800);
+      return false;
+    }
+    document.querySelectorAll('#mainNav .nav-link').forEach(link=>{
+      link.addEventListener('click', ()=>{
+        const bsCollapse=new bootstrap.Collapse(document.getElementById('navMenu'),{toggle:false});
+        if(window.getComputedStyle(document.querySelector('.navbar-toggler')).display!=='none'){bsCollapse.hide();}
+      });
+    });
+  </script>
+</body>
+</html>
