@@ -487,36 +487,50 @@
 </section>
 <!-- END OUR PROJECTS SECTION -->
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <h3>Contact Us</h3>
-          <p class="text-muted">We're ready to discuss your CAD requirements.</p>
-          <ul class="list-unstyled">
-            <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-primary"></i>landmarkdesigns202@gmail.com</li>
-            <li class="mb-2"><i class="fa-solid fa-phone me-2 text-primary"></i>8805205474 / 7058912791</li>
-            <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-primary"></i>Office No. 1, Rajarampuri 9 Lane, Kolhapur, Maharashtra, India</li>
-          </ul>
-        </div>
-        <div class="col-lg-6">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title mb-3">Send a message</h5>
-              <form id="contactForm" onsubmit="return handleContact(event)">
-                <div class="mb-3"><label class="form-label">Name</label><input id="name" class="form-control" required /></div>
-                <div class="mb-3"><label class="form-label">Email</label><input id="email" type="email" class="form-control" required /></div>
-                <div class="mb-3"><label class="form-label">Message</label><textarea id="message" class="form-control" rows="4" required></textarea></div>
-                <div class="d-grid"><button class="btn btn-primary" type="submit">Send Message</button></div>
-                <p class="mt-3 small text-success d-none" id="contactSuccess">Thanks — your message was prepared locally (demo only).</p>
-              </form>
-            </div>
+<!-- CONTACT -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h3>Contact Us</h3>
+        <p class="text-muted">We're ready to discuss your CAD requirements.</p>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-primary"></i>landmarkdesigns202@gmail.com</li>
+          <li class="mb-2"><i class="fa-solid fa-phone me-2 text-primary"></i>8805205474 / 7058912791</li>
+          <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-primary"></i>Office No. 1, Rajarampuri 9 Lane, Kolhapur, Maharashtra, India</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title mb-3">Send a message</h5>
+            <form id="contactForm" action="https://formspree.io/f/mgvnvyqj" method="POST">
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input id="name" name="name" class="form-control" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input id="email" name="email" type="email" class="form-control" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary" type="submit">Send Message</button>
+              </div>
+              <p class="mt-3 small text-success d-none" id="contactSuccess">
+                Thanks — your message was prepared locally (demo only).
+              </p>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- FOOTER -->
   <footer class="bg-dark text-white py-4">
@@ -536,26 +550,51 @@
   <!-- Custom JS -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    function handleContact(e){
-      e.preventDefault();
-      const name=document.getElementById('name').value.trim();
-      const email=document.getElementById('email').value.trim();
-      const message=document.getElementById('message').value.trim();
-      if(!name||!email||!message){alert('Please complete all fields.');return false;}
-      document.getElementById('contactSuccess').classList.remove('d-none');
-      setTimeout(()=>{
-        document.getElementById('contactForm').reset();
-        document.getElementById('contactSuccess').classList.add('d-none');
-        alert('Demo contact form only. Hook with backend to send messages.');
-      },800);
+
+  // Handle contact form submission with AJAX
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim()
+    };
+    if (!data.name || !data.email || !data.message) {
+      alert('Please complete all fields.');
       return false;
     }
-    document.querySelectorAll('#mainNav .nav-link').forEach(link=>{
-      link.addEventListener('click', ()=>{
-        const bsCollapse=new bootstrap.Collapse(document.getElementById('navMenu'),{toggle:false});
-        if(window.getComputedStyle(document.querySelector('.navbar-toggler')).display!=='none'){bsCollapse.hide();}
+    // Send form data to Formspree
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
       });
+      if (response.ok) {
+        // Show success message or redirect as needed
+        document.getElementById('contactSuccess').classList.remove('d-none');
+        form.reset();
+        setTimeout(() => {
+          document.getElementById('contactSuccess').classList.add('d-none');
+          // Redirect to homepage or any section you want
+          window.location.href = "#home"; // Change "#home" to your desired section or URL
+        }, 2000);
+      } else {
+        alert('There was a problem sending your message. Please try again.');
+      }
+    } catch (error) {
+      alert('There was a problem sending your message. Please try again.');
+    }
+    return false;
+  });
+
+  document.querySelectorAll('#mainNav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const bsCollapse = new bootstrap.Collapse(document.getElementById('navMenu'), { toggle: false });
+      if (window.getComputedStyle(document.querySelector('.navbar-toggler')).display !== 'none') { bsCollapse.hide(); }
     });
+  });
   </script>
 </body>
 </html>
