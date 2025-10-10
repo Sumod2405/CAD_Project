@@ -372,7 +372,7 @@
       </div>
        <div class="col-md-6 col-lg-4">
         <div class="card team-card text-center shadow-sm">
-          <img src="img/4.png" alt="Er. Supi Ovhal" class="card-img-top" width="418" height="480" style="object-fit:cover;">
+          <img src="img/logo.png" alt="Er. Supi Ovhal" class="card-img-top" width="418" height="480" style="object-fit:cover;">
           <div class="card-body">
             <h5 class="card-title">Er. Supi Ovhal.</h5>
             <p class="card-text small text-muted">COO & Manager — Senior Engineer & Surveyor with years of practical experience.</p>
@@ -387,7 +387,7 @@
   <!-- Team Member 2 -->
   <div class="col-md-6 col-lg-4 mb-4">
     <div class="card team-card text-center shadow-sm">
-      <img src="img/2.jpg" alt="Er. Poonam Patil" class="card-img-top" width="418" height="480" style="object-fit:cover;">
+      <img src="img/logo.png" alt="Er. Poonam Patil" class="card-img-top" width="418" height="480" style="object-fit:cover;">
       <div class="card-body">
         <h5 class="card-title">Er. Poonam Patil</h5>
         <p class="card-text small text-muted">Design Engineer</p>
@@ -399,7 +399,7 @@
   <!-- Team Member 3 -->
   <div class="col-md-6 col-lg-4 mb-4">
     <div class="card team-card text-center shadow-sm">
-      <img src="img/3.jpg" alt="PrithviRaj Jadhav" class="card-img-top" width="418" height="480" style="object-fit:cover;">
+      <img src="img/logo.png" alt="PrithviRaj Jadhav" class="card-img-top" width="418" height="480" style="object-fit:cover;">
       <div class="card-body">
         <h5 class="card-title">PrithviRaj Jadhav</h5>
         <p class="card-text small text-muted">Consulting Engineer</p>
@@ -560,18 +560,98 @@
   </div>
 </section>
 
+<footer class="bg-dark text-white py-5">
+  <div class="container">
+    <div class="row gy-4">
 
-  <!-- FOOTER -->
-  <footer class="bg-dark text-white py-4">
-    <div class="container d-md-flex justify-content-between align-items-center">
-      <div><strong>Landmark & Construction</strong><br><small>Office No.1, Rajarampuri 9 Lane, Kolhapur, Maharashtra, India</small></div>
-      <div class="mt-3 mt-md-0">
-        <a class="text-white me-3" href="mailto:landmarkdesigns202@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-        <a class="text-white me-3" href="tel:+918805205474"><i class="fa-solid fa-phone"></i></a>
-        <small class="d-block mt-2">&copy; <span id="year"></span> Landmark — All rights reserved</small>
+      <!-- Company Info -->
+<div class="col-md-4">
+  <strong>Landmark & Construction</strong><br>
+  <small>Office No.1, Rajarampuri 9 Lane, Kolhapur, Maharashtra, India</small>
+  <div class="mt-3">
+    <a class="text-white me-3" href="mailto:landmarkdesigns202@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    <a class="text-white me-3" href="tel:+918805205474"><i class="fa-solid fa-phone"></i></a>
+    <a class="text-white me-3" href="https://wa.me/918805205474" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+</div>
+
+
+      <!-- Quick Links -->
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="#about" class="text-white text-decoration-none">About</a></li>
+          <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="#expertise" class="text-white text-decoration-none">Expertise</a></li>
+          <li><a href="#team" class="text-white text-decoration-none">Team</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
       </div>
+
+      <!-- Get In Touch -->
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3">Get In Touch</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>Rajarampuri 9th Lane, Kolhapur</li>
+          <li class="mb-2"><i class="fa-solid fa-phone me-2"></i>+91 8805205474</li>
+          <li><i class="fa-solid fa-envelope me-2"></i>
+            <a href="mailto:landmarkdesigns202@gmail.com" class="text-warning text-decoration-none">
+              landmarkdesigns202@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
     </div>
-  </footer>
+
+    <div class="text-center pt-4 border-top border-light mt-4">
+      <small>&copy; <span id="year"></span> Landmark — All rights reserved</small>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ===== Floating WhatsApp Icon ===== -->
+<a href="https://wa.me/918805205474" target="_blank" class="whatsapp_float">
+  <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
+</a>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<style>
+  /* WhatsApp Floating Icon */
+  .whatsapp_float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 28px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .whatsapp_float:hover {
+    transform: scale(1.1);
+    color: #fff;
+  }
+
+  .whatsapp-icon {
+    font-size: 32px;
+  }
+</style>
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
